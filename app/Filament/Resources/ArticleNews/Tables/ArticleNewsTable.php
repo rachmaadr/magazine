@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Authors\Tables;
+namespace App\Filament\Resources\ArticleNews\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -12,14 +12,22 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class AuthorsTable
+class ArticleNewsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                ImageColumn::make('avatar')
+                TextColumn::make('name')->searchable(),
+                TextColumn::make('slug'),
+                TextColumn::make('is_featured')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                    'featured' => 'success',
+                    'not_featured' => 'danger'
+                }),
+                TextColumn::make('category.name'),
+                ImageColumn::make('thumbnail'),
             ])
             ->filters([
                 TrashedFilter::make(),
