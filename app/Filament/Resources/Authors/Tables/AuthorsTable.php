@@ -19,7 +19,8 @@ class AuthorsTable
         return $table
             ->columns([
                 TextColumn::make('name'),
-                ImageColumn::make('avatar')
+                ImageColumn::make('avatar')->label('avatar')
+                    ->disk('public'),
             ])
             ->filters([
                 TrashedFilter::make(),

@@ -11,7 +11,9 @@ use Filament\Resources\Pages\EditRecord;
 class EditArticleNews extends EditRecord
 {
     protected static string $resource = ArticleNewsResource::class;
-
+    protected function getRedirectUrl(): string|null{
+        return $this->getResource()::getUrl('index');
+    }
     protected function getHeaderActions(): array
     {
         return [
@@ -19,5 +21,8 @@ class EditArticleNews extends EditRecord
             ForceDeleteAction::make(),
             RestoreAction::make(),
         ];
+    }
+    protected function getSavedNotificationTitle(): string|null{
+        return 'Artikel Berhasil Diubah';
     }
 }

@@ -27,7 +27,8 @@ class ArticleNewsTable
                     'not_featured' => 'danger'
                 }),
                 TextColumn::make('category.name'),
-                ImageColumn::make('thumbnail'),
+                ImageColumn::make('thumbnail')->label('thumbnail')
+                    ->disk('public'),
             ])
             ->filters([
                 TrashedFilter::make(),

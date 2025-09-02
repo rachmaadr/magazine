@@ -20,7 +20,15 @@ class CategoryForm
                 TextInput::make('slug')
                     ->required()->disabled(),
                 FileUpload::make('icon')
-                    ->image()->required(),
+                    ->image()
+                    ->directory('magazine') // Folder di storage/app/public
+                    ->visibility('public')
+                    ->preserveFilenames()
+                    ->disk('public')
+                    ->imagePreviewHeight('150') // Tambahkan ini
+                    ->loadingIndicatorPosition('left')
+                    ->panelLayout('integrated')
+                    ->required(),
             ]);
     }
 }

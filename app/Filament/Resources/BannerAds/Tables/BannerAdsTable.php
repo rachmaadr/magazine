@@ -27,7 +27,8 @@ class BannerAdsTable
                 TextColumn::make('type')
                     ->searchable(),
                 ImageColumn::make('thumbnail')
-                    ->searchable(),
+                    ->searchable()->label('avatar')
+                    ->disk('public'),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

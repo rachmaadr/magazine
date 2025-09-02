@@ -17,7 +17,14 @@ class ArticleNewsForm
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                FileUpload::make('thumbnail'),
+                FileUpload::make('thumbnail')->image()
+                    ->directory('magazine') // Folder di storage/app/public
+                    ->visibility('public')
+                    ->preserveFilenames()
+                    ->disk('public')
+                    ->imagePreviewHeight('150') // Tambahkan ini
+                    ->loadingIndicatorPosition('left')
+                    ->panelLayout('integrated')->required(),
                 Select::make('category_id')
                     ->relationship('category', 'name')
                     ->searchable()

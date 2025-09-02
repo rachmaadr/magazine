@@ -20,4 +20,12 @@ class EditCategory extends EditRecord
             RestoreAction::make(),
         ];
     }
+
+    protected function getRedirectUrl(): string|null{
+        return $this->getResource()::getUrl('index');
+    }
+
+    protected function getSavedNotificationTitle(): string|null{
+        return 'Kategori Berhasil Diubah';
+    }
 }

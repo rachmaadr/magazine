@@ -22,7 +22,9 @@ class CategoriesTable
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                ImageColumn::make('icon'),
+                ImageColumn::make('icon')
+                    ->label('Icon')
+                    ->disk('public'),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

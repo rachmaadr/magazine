@@ -25,8 +25,15 @@ class BannerAdsForm
                         'square' => 'Square'
                     ]),
                 FileUpload::make('thumbnail')
-                    ->required()
-                    ->image(),
+                    ->image()
+                    ->directory('magazine') // Folder di storage/app/public
+                    ->visibility('public')
+                    ->preserveFilenames()
+                    ->disk('public')
+                    ->imagePreviewHeight('150') // Tambahkan ini
+                    ->loadingIndicatorPosition('left')
+                    ->panelLayout('integrated')
+                    ->required(),
             ]);
     }
 }
