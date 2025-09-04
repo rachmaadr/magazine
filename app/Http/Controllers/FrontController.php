@@ -85,6 +85,34 @@ class FrontController extends Controller
         ->inRandomOrder()
         ->get();
         return view('front.author', compact('author', 'authors', 'categories','bannerAds'));
+    }
+    public function search(Request $request){
+        $request->validate([
+            'keyword' => ['required', 'string', 'max:255'],
+        ]);
+        $categories = Category::all();
+        $keyword = $request->keyword;
+        $articles = ArtikelNews::with(['category', 'author'])
+        ->where('name', 'like', '%' . $keyword . '%')
+        ->paginate(6);
+
+        return view('front.search', compact('articles', 'categories', 'keyword'));
+    }
+    public function details(ArtikelNews $artikelNews){
+        $categories = Category::all();
         
+        $bannerAds = BannerAds::where('is_active', 'active')
+        ->where('type', 'banner')
+        ->inRandomOrder()
+        ->get();
+
+        $artikels = ArtikelNews::with(['category'])
+        ->where('is_featured', 'not_featured')
+        ->where('id', '!=', $artikelNews->id)
+        ->latest()
+        ->take(3)
+        ->get();
+
+        return view('front.detail', compact('artikelNews', 'categories', 'artikels', 'bannerAds'));
     }
 }
