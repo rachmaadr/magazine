@@ -67,7 +67,13 @@ class FrontController extends Controller
         ->inRandomOrder()
         ->first();
 
-        return view('front.index', compact('categories', 'authors', 'artikels', 'featuredArtikels', 'bannerAds', 'entertainment_articles', 'business_articles', 'automotive_articles', 'entertainment_featured_articles', 'business_featured_articles', 'automotive_featured_articles'));
+        //menampilkan kategori berdasarkan id
+        $entertainmentCategory = Category::where('name', 'Entertainment')->first();
+        $businessCategory = Category::where('name', 'business')->first();
+        $automotiveCategory = Category::where('name', 'automotive')->first();
+
+
+        return view('front.index', compact('categories', 'authors', 'artikels', 'featuredArtikels', 'bannerAds', 'entertainment_articles', 'business_articles', 'automotive_articles', 'entertainment_featured_articles', 'business_featured_articles', 'automotive_featured_articles', 'entertainmentCategory', 'businessCategory', 'automotiveCategory'));
     }
     public function category(Category $category){
         $categories = Category::all();

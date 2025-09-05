@@ -21,7 +21,7 @@
 						<div class="card-detail max-w-[1130px] w-full mx-auto flex items-end justify-between pb-10 relative z-20">
 							<div class="flex flex-col gap-[10px]">
 								<p class="text-white">Featured</p>
-								<a href="{{ route('front.detail', $featuredArtikel->slug) }}" class="font-bold text-4xl leading-[45px] text-white two-lines hover:underline transition-all duration-300">{{ $featuredArtikel->name }}</a>
+								<a href="{{ route('front.detail', $featuredArtikel->slug) }}" class="font-bold text-4xl leading-[45px] text-white two-lines hover:underline transition-all duration-300">{{ substr($featuredArtikel->name, 0, 50) }}{{ strlen($featuredArtikel->name) > 50 ? "..." : "" }}</a>
 								<p class="text-white">{{ $featuredArtikel->created_at->format('d M Y') }} • {{ $featuredArtikel->category->name }}</p>
 							</div>
 							<div class="prevNextButtons flex items-center gap-4 mb-[60px]">
@@ -56,7 +56,7 @@
 								<img src="{{Storage::url($artikel->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail" />
 							</div>
 							<div class="card-info flex flex-col gap-[6px]">
-								<h3 class="font-bold text-lg leading-[27px]">{{ $artikel->name }}</h3>
+								<h3 class="font-bold text-lg leading-[27px]">{{ substr($artikel->name, 0, 50) }} {{ strlen($artikel->name) > 50 ? "..." : ""}}</h3>
 								<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $artikel->created_at->format('d M Y') }}</p>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 					Latest For You <br />
 					in Entertainment
 				</h2>
-				<a href="categoryPage.html" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
+				<a href="{{ route('front.category', ['category' => $entertainmentCategory->slug]) }}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
 			</div>
 			<div class="flex justify-between items-center h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
@@ -120,7 +120,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $entertainment_featured_articles->name }}</a>
+							<a href="{{ route('front.detail', $entertainment_featured_articles->slug) }}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $entertainment_featured_articles->name }}</a>
 							<p class="text-white">{{ $entertainment_featured_articles->created_at->format('d M Y') }}</p>
 						</div>
 					</div>
@@ -134,7 +134,7 @@
 										<img src="{{ Storage::url($entertainment->thumbnail) }}" class="object-cover w-full h-full" alt="thumbnail" />
 									</div>
 									<div class="flex flex-col justify-center-center gap-[6px]">
-										<h3 class="font-bold text-lg leading-[27px]">{{ $entertainment->name }}</h3>
+										<h3 class="font-bold text-lg leading-[27px]">{{ substr($entertainment->name, 0,50) }}{{ strlen($entertainment->name) > 50 ? "..." : "" }}</h3>
 										<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $entertainment->created_at->format('d M Y') }}</p>
 									</div>
 								</div>
@@ -153,7 +153,7 @@
 					Latest For You <br />
 					in Business
 				</h2>
-				<a href="categoryPage.html" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
+				<a href="{{ route('front.category', ['category' => $businessCategory->slug]) }}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
 			</div>
 			<div class="flex justify-between items-center h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
@@ -162,7 +162,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $business_featured_articles->name }}</a>
+							<a href="{{ route('front.detail', $business_featured_articles->slug) }}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $business_featured_articles->name }}</a>
 							<p class="text-white">{{ $business_featured_articles->created_at->format('d M Y') }}</p>
 						</div>
 					</div>
@@ -176,7 +176,7 @@
 										<img src="{{Storage::url($articles->thumbnail)}}" class="object-cover w-full h-full" alt="thumbnail" />
 									</div>
 									<div class="flex flex-col justify-center-center gap-[6px]">
-										<h3 class="font-bold text-lg leading-[27px]">{{ $articles->name }}</h3>
+										<h3 class="font-bold text-lg leading-[27px]">{{ substr($articles->name,0, 50) }}{{ strlen($articles->name) > 50 ? "..." : "" }}</h3>
 										<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $articles->created_at->format('d M Y') }}</p>
 									</div>
 								</div>
@@ -195,7 +195,7 @@
 					Latest For You <br />
 					in Automotive
 				</h2>
-				<a href="categoryPage.html" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
+				<a href="{{ route('front.category', ['category' => $automotiveCategory->slug]) }}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">Explore All</a>
 			</div>
 			<div class="flex justify-between items-center h-fit">
 				<div class="featured-news-card relative w-full h-[424px] flex flex-1 rounded-[20px] overflow-hidden">
@@ -204,7 +204,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="details.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ $automotive_featured_articles->name }}</a>
+							<a href="{{ route('front.detail', $automotive_featured_articles) }}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{ substr($automotive_featured_articles->name, 0, 50) }}{{ strlen($automotive_featured_articles->name) > 50 ? "..." : "" }}</a>
 							<p class="text-white">{{ $automotive_featured_articles->created_at->format('d M Y') }}</p>
 						</div>
 					</div>

@@ -18,7 +18,7 @@ class CategoryForm
                 TextInput::make('name')
                     ->required()->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))->live(debounce: 250)->maxLength(255),
                 TextInput::make('slug')
-                    ->required()->disabled(),
+                    ->required()->disabled()->hidden(),
                 FileUpload::make('icon')
                     ->image()
                     ->directory('magazine') // Folder di storage/app/public
