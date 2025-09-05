@@ -106,6 +106,25 @@ class FrontController extends Controller
         ->inRandomOrder()
         ->get();
 
+        $squareAds = BannerAds::where('is_active', 'active')
+        ->where('type', 'square')
+        ->inRandomOrder()
+        ->take(2)
+        ->get();
+
+        if($squareAds->count() < 2){
+            $squareAds1 = $squareAds->first();
+            $squareAds2 = $squareAds->first();
+        }else{
+            $squareAds1 = $squareAds->get(0);
+            $squareAds2 = $squareAds->get(1);
+        }
+
+        $authorNews = ArtikelNews::where('author_id', $artikelNews->author_id)
+        ->where('id', '!=', $artikelNews->id)
+        ->inRandomOrder()
+        ->get();
+
         $artikels = ArtikelNews::with(['category'])
         ->where('is_featured', 'not_featured')
         ->where('id', '!=', $artikelNews->id)
@@ -113,6 +132,6 @@ class FrontController extends Controller
         ->take(3)
         ->get();
 
-        return view('front.detail', compact('artikelNews', 'categories', 'artikels', 'bannerAds'));
+        return view('front.detail', compact('artikelNews', 'categories', 'artikels', 'bannerAds', 'squareAds1', 'squareAds2', 'authorNews'));
     }
 }
