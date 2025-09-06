@@ -24,7 +24,7 @@ Admin dapat mengelola konten berita melalui **Filament Admin Panel** dengan fitu
 
 ## 🗂️ Entity Relationship Diagram (ERD)
 
-![ERD](ERD-NewsPaperBaseonWebsite%20(1).png)
+![ERD](image/ERD-NewsPaperBaseonWebsite%20(1).png)
 
 **Tabel Utama:**
 - **Users**: autentikasi admin  
@@ -39,7 +39,33 @@ Relasi utama:
 
 ---
 
+## UI Website
+** Halaman Index
+![HalamanIndex](image/index-page.png)
 
+** Halaman Kategori
+![HalamanKategori](image/category-page.png)
+
+** Halaman News Detail
+![HalamanNewsDetail](image/article-detail-page.png)
+
+
+## UI Admin Dashboard
+
+** Halaman Artikel
+![HalamanArtikel](image/admin-article-page.png)
+
+**Halaman Editor Artikel
+![HalamanEditorArtikel](image/admin-article-detail-page.png)
+
+**Halaman Admin Category
+![HalamanAdminCategory](image/admin-categories-page.png)
+
+**Halaman CRUD Banner
+![HalamanBanner](image/admin-banner-page.png)
+
+**Halaman CRUD Author
+![HalamanAuthor](image/admin-author-page.png)
 
 ## ⚙️ Tech Stack
 - [Laravel 10+](https://laravel.com/) - PHP Framework
