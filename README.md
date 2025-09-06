@@ -40,31 +40,31 @@ Relasi utama:
 ---
 
 ## UI Website
-** Halaman Index
+**Halaman Index**
 ![HalamanIndex](image/index-page.png)
 
-** Halaman Kategori
+**Halaman Kategori**
 ![HalamanKategori](image/category-page.png)
 
-** Halaman News Detail
+**Halaman News Detail**
 ![HalamanNewsDetail](image/article-detail-page.png)
 
 
 ## UI Admin Dashboard
 
-** Halaman Artikel
+**Halaman Artikel**
 ![HalamanArtikel](image/admin-article-page.png)
 
-**Halaman Editor Artikel
+**Halaman Editor Artikel**
 ![HalamanEditorArtikel](image/admin-article-detail-page.png)
 
-**Halaman Admin Category
+**Halaman Admin Category**
 ![HalamanAdminCategory](image/admin-categories-page.png)
 
-**Halaman CRUD Banner
+**Halaman CRUD Banner**
 ![HalamanBanner](image/admin-banner-page.png)
 
-**Halaman CRUD Author
+**Halaman CRUD Author**
 ![HalamanAuthor](image/admin-author-page.png)
 
 ## ⚙️ Tech Stack
